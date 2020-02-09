@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1(class='display-4')= 'Quake Log Parser'
+  form(method='post', enctype='multipart/form-data')
+    div(class='form-row')
+      div(class='form-col')
+        div(class='input-group')
+          div(class='input-group-prepend')
+            span(class='input-group-text' id="inputGroupFileAddon01")= 'Upload'
+          div(class = 'custom-file')
+            input(type='file', name='imageupload', id = 'inputGroupFile01', class ='custom-file-input', aria-describedby="inputGroupFileAddon01")
+            label(for="inputGroupFile01", class='custom-file-label')
+      div(class='form-col')
+        input(type='submit', name='uploadimage', value='Enviar Arquivo', class= 'btn btn-primary')
+
+  script.
+      document.getElementById('inputGroupFile01').onchange = function(){
+      var fileName = document.getElementById('inputGroupFile01').value;
+      document.getElementsByClassName('custom-file-label')[0].innerText = fileName;
+    }

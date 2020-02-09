@@ -1,0 +1,19 @@
+extends layout
+block content
+    div
+        h1(class='display-6')= 'Resultados'
+    div
+        table(style='width:100%', border='1', class= 'table')
+            tr
+                th Jogo
+                th Número de Kils
+                th Jogadores
+                th Kills
+            each val, index in log
+                tr
+                    td= index
+                    td= val.total_kills
+                    td= val.players
+                    td= JSON.stringify(val.kills)
+                tr
+    div
